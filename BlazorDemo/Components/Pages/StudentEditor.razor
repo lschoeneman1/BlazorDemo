@@ -1,0 +1,29 @@
+@using BlazorDemo.Entities
+@page "/StudentEditor"
+@rendermode InteractiveServer
+
+<h3>Student Editor</h3>
+
+    <p>
+        <strong>First Name:</strong>
+        <input @bind="newStudent.FirstName" />
+    </p>
+    <p>
+        <strong>Last Name:</strong>
+        <input @bind="newStudent.LastName" />
+    </p>
+    <p>
+        <strong>Email:</strong>
+        <input @bind="newStudent.Email" />
+    </p>
+    <button @onclick="() => OnNewStudent.InvokeAsync(newStudent)">Add Student</button>
+
+
+
+@code
+{
+    [Parameter]
+    public EventCallback<Student> OnNewStudent { get; set; }
+
+    Student newStudent = new Student();
+}

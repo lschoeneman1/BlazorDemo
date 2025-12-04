@@ -1,0 +1,22 @@
+@using BlazorDemo.Entities
+@page "/StudentInfo"
+@rendermode InteractiveServer
+
+<h3>Student Info</h3>
+@if (student != null)
+{
+    <p><strong>Name:</strong> @student.LastName, @student.FirstName</p>    
+    <p><strong>Email:</strong> @student.Email</p>    
+}
+else
+{
+    <p>No student information available.</p>
+}
+
+
+
+@code
+{
+    [Parameter]
+    public Student? student { get; set; } 
+}

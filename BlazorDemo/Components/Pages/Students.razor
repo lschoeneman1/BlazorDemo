@@ -1,0 +1,25 @@
+@page "/students"
+@rendermode InteractiveServer
+@using BlazorDemo.Entities
+<h3>Students</h3>
+
+@foreach (var student in students)
+{
+    <StudentInfo student="student" />
+}
+<StudentEditor OnNewStudent="AddStudent" />
+
+@code
+{
+     public List<Student> students = new()
+    {
+        new Student { FirstName = "John", LastName = "Doe", Email = "john.doe@example.com" },
+        new Student { FirstName = "Jane", LastName = "Smith", Email = "jane.smith@example.com" },
+        new Student { FirstName = "Alice", LastName = "Johnson", Email = "alice.johnson@example.com" }
+    };
+
+    private void AddStudent(Student newStudent)
+    {
+        students.Add(newStudent);
+    }
+}
